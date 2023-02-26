@@ -2,7 +2,7 @@
 
 ## Projeto criado com NextJS usando recursos de SSR e SSG;
 
-Para que o projeto funcione, é necessário conhecer um pouco da plataforma [Stripe](https://stripe.com/br). Resumidamente, o Stripe fornece uma API para integração que possibilita simular um e-comerce. Confira a [documentação](https://stripe.com/docs) no site da plataforma.
+Para que o projeto funcione é necessário conhecer um pouco da plataforma [Stripe](https://stripe.com/br). Resumidamente, o Stripe fornece uma API para integração que possibilita simular um e-comerce. Confira a [documentação](https://stripe.com/docs) no site da plataforma.
 
 ## Porque SSR e SSG ?
 
@@ -25,3 +25,9 @@ Usei o SSR em `src/pages/success.tsx` para que os dados após confirmação do p
 Após, a aplicação deve estar rodando em http://localhost:3000.
 
 #
+
+![image](https://user-images.githubusercontent.com/65927348/221386216-c96fe65f-6703-447e-96a5-578ef1cdcf2f.png)
+
+![image](https://user-images.githubusercontent.com/65927348/221386241-50cc9e0f-f418-41f3-b4df-92056a792a2e.png)
+
+![image](https://user-images.githubusercontent.com/65927348/221386268-829afdc9-61e6-400b-a75e-2241fc329999.png)
