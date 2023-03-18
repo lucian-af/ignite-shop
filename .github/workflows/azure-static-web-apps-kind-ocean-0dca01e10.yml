@@ -21,8 +21,7 @@ jobs:
           envkey_NEXT_URL: ${{ secrets.SECRET_KEY }}
           envkey_STRIPE_PUBLIC_KEY: ${{ secrets.STRIPE_PUBLIC_KEY }}
           envkey_STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
-          file_name: '.env'
-          directory: '/'
+          file_name: .env          
       - uses: actions/checkout@v2
         with:
           submodules: true
