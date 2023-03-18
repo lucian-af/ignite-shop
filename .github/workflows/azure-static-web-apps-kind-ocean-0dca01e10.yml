@@ -15,13 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - name: Create .env file
-        uses: SpicyPizza/create-envfile@v1.3.0
+      - uses: iamsauravsharma/create-dotenv@v1.2.2
         with:
-          envkey_NEXT_URL: ${{ vars.SECRET_KEY }}
-          envkey_STRIPE_PUBLIC_KEY: ${{ vars.STRIPE_PUBLIC_KEY }}
-          envkey_STRIPE_SECRET_KEY: ${{ vars.STRIPE_SECRET_KEY }}
-          file_name: .env          
+          env-prefix: 'ENV_KEY_'
+        env:          
+          ENV_KEY_NEXT_URL: ${{ vars.NEXT_URL }}
+          ENV_KEY_STRIPE_PUBLIC_KEY: ${{ vars.STRIPE_PUBLIC_KEY }}
+          ENV_KEY_STRIPE_SECRET_KEY: ${{ vars.STRIPE_SECRET_KEY }}
       - uses: actions/checkout@v2
         with:
           submodules: true
