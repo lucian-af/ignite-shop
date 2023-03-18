@@ -18,6 +18,7 @@ jobs:
       - uses: iamsauravsharma/create-dotenv@v1.2.2
         with:
           env-prefix: 'ENV_KEY_'
+          directory: 'github/workspace/'
         env:          
           ENV_KEY_NEXT_URL: ${{ vars.NEXT_URL }}
           ENV_KEY_STRIPE_PUBLIC_KEY: ${{ vars.STRIPE_PUBLIC_KEY }}
