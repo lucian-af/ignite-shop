@@ -8,8 +8,6 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
-env:
-  env_var: ${{ vars.production }}
     
 jobs:
   create_env_file:
@@ -20,13 +18,13 @@ jobs:
         with:
           env-prefix: 'ENV_KEY_'          
         env:          
-          ENV_KEY_NEXT_URL: '${{ vars.NEXT_URL }}'
+          ENV_KEY_NEXT_URL: '${{ env.NEXT_URL }}'
           ENV_KEY_STRIPE_PUBLIC_KEY: '${{ vars.STRIPE_PUBLIC_KEY }}'
           ENV_KEY_STRIPE_SECRET_KEY: '${{ vars.STRIPE_SECRET_KEY }}'
       - name: Set text output    
         uses: mkungla/actions-set-text-output@v1.1.0
         with:    
-          text: '${{ vars.NEXT_URL }} - ${{ vars.STRIPE_PUBLIC_KEY }} - ${{ vars.STRIPE_SECRET_KEY }}'
+          text: '${{ env.NEXT_URL }} - ${{ vars.STRIPE_PUBLIC_KEY }} - ${{ vars.STRIPE_SECRET_KEY }}'
       
 
   build_and_deploy_job:
