@@ -20,10 +20,10 @@ jobs:
           submodules: true
       - name: Load .env file
         run: |
-          touch .env.local
-          echo STRIPE_PUBLIC_KEY=${{ secrets.STRIPE_PUBLIC_KEY }} >> .env.local
-          echo NEXT_URL=${{ secrets.NEXT_URL }} >> .env.local
-          echo STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }} >> .env.local
+          touch .env
+          echo STRIPE_PUBLIC_KEY=${{ secrets.STRIPE_PUBLIC_KEY }} >> .env
+          echo NEXT_URL=${{ secrets.NEXT_URL }} >> .env
+          echo STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }} >> .env
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
