@@ -8,7 +8,9 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
-    
+env:
+  NEXT_URL: ${{ env.NEXT_URL }}
+
 jobs:
   create_env_file:
     runs-on: ubuntu-latest
