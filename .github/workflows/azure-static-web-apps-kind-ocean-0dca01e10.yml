@@ -15,6 +15,15 @@ jobs:
     runs-on: ubuntu-latest    
     name: Build and Deploy Job
     steps:
+      - name: Load .env file
+        uses: natterstefan/action-next-env@v1
+        with:          
+          environment: production
+      - name: Some other action
+        run: |
+          echo "HELLO Variable: ${{ env.NEXT_URL }}"
+          echo "HELLO Variable: ${{ env.STRIPE_SECRET_KEY }}"
+          echo "HELLO Variable: ${{ env.STRIPE_PUBLIC_KEY }}"
       - uses: iamsauravsharma/create-dotenv@v1.2.2
         with:
           env-prefix: 'ENV_KEY_'
