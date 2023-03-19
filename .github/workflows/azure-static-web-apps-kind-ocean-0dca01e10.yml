@@ -13,23 +13,25 @@ jobs:
   create_env_file:
     runs-on: ubuntu-latest
     name: Create env file
+    environment: dev
     steps:
       - uses: iamsauravsharma/create-dotenv@v1.2.2
         with:
           env-prefix: 'ENV_KEY_'          
         env:          
-          ENV_KEY_NEXT_URL: '${{secrets.NEXT_URL}}'
-          ENV_KEY_STRIPE_PUBLIC_KEY: '${{env.NEXT_URL}}'
-          ENV_KEY_STRIPE_SECRET_KEY: '${{ vars.STRIPE_SECRET_KEY }}'
+          ENV_KEY_NEXT_URL: '${{env.NEXT_URL}}'
+          ENV_KEY_STRIPE_PUBLIC_KEY: '${{env.STRIPE_PUBLIC_KEY}}'
+          ENV_KEY_STRIPE_SECRET_KEY: '${{env.STRIPE_SECRET_KEY}}'
       - name: Set text output    
         uses: mkungla/actions-set-text-output@v1.1.0
         with:    
-          text: '${{secrets.NEXT_URL}} - ${{ vars.STRIPE_PUBLIC_KEY }} - ${{ vars.STRIPE_SECRET_KEY }}'
+          text: '${{secrets.NEXT_URL}} - ${{env.STRIPE_PUBLIC_KEY}} - ${{env.STRIPE_SECRET_KEY}}'
       
 
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
+    environment: dev
     name: Build and Deploy Job
     steps:
       - uses: actions/checkout@v2
