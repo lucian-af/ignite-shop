@@ -13,7 +13,7 @@ export const globalStyles = globalCss({
     color: '$gray100',
 
     '@mobile': {
-      margin: '0 .5rem 3rem',
+      padding: '0 1.5rem 3rem',
     },
   },
 

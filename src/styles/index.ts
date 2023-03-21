@@ -8,7 +8,7 @@ export const {
   getCssText,
   keyframes,
   theme,
-  createTheme,  
+  createTheme,
 } = createStitches({
   theme: {
     colors: {
@@ -37,7 +37,7 @@ export const {
     },
   },
   media: {
-    mobile: '(max-width: 500px)',
-    desktop: '(min-width: 501px)',
-  }
+    mobile: '(max-width: 600px)',
+    desktop: '(min-width: 601px)',
+  },
 });

@@ -12,7 +12,8 @@ export const ProductContainer = styled('main', {
   '@mobile': {
     display: 'flex',
     flexDirection: 'column',
-    maxWidth: '100%',
+    alignItems: 'center',
+    width: '100%',
   },
 });
 

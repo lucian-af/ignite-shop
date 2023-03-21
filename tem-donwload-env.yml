@@ -1,0 +1,13 @@
+steps:
+  - task: DownloadSecureFile@1
+    displayName: 'Download .env file'
+    inputs:
+      secureFile: 'a9863bc5-5956-47fb-9697-8a561e2f94fa'
+
+  - task: CopyFiles@2
+    displayName: 'Copy File .env to: $(System.DefaultWorkingDirectory)'
+    inputs:
+      SourceFolder: '$(Agent.TempDirectory)'
+      Contents: .env
+      TargetFolder: '$(System.DefaultWorkingDirectory)'
+      OverWrite: true

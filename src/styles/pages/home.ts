@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { styled } from '..';
 
 export const HomeContainer = styled('main', {
@@ -9,6 +10,7 @@ export const HomeContainer = styled('main', {
 
   '@mobile': {
     minHeight: 470,
+    width: '100%',
   },
 });
 
@@ -84,7 +86,7 @@ export const Product = styled('div', {
   },
 });
 
-export const CartContainer = styled('div', {
+export const CartContainer = styled(Link, {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -92,12 +94,36 @@ export const CartContainer = styled('div', {
   height: 56,
   borderRadius: 8,
   background: '$green500',
+  color: '$white',
 
   '&:hover': {
     background: '$green300',
   },
+});
 
-  a: {
-    color: '$white',
+export const Arrow = styled('svg', {
+  width: '30px',
+  height: '30px',
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  fill: '#fff',
+  cursor: 'pointer',
+
+  variants: {
+    disabled: {
+      true: {
+        fill: 'rgba(255, 255, 255, 0.5)',
+      },
+    },
+    position: {
+      left: {
+        left: '5px',
+      },
+      right: {
+        left: 'auto',
+        right: '5px',
+      },
+    },
   },
 });

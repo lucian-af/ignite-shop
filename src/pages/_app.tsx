@@ -9,6 +9,8 @@ import { CartButton } from '../components/cartButton';
 import { PedidoContextProvider } from '../contexts/pedidoContext';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Loading from '../components/loading';
+import { Suspense } from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
   globalStyles();
@@ -30,8 +32,9 @@ export default function App({ Component, pageProps }: AppProps) {
             </Link>
             {showCartList && <CartButton />}
           </Header>
-
-          <Component {...pageProps} />
+          <Suspense fallback={<Loading />}>
+            <Component {...pageProps} />
+          </Suspense>
         </PedidoContextProvider>
       </Container>
     </>

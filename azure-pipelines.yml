@@ -1,0 +1,39 @@
+trigger:
+  - main
+
+stages:
+  - stage: Build
+    jobs:
+      - job: jobBuild
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - template: tem-donwload-env.yml
+
+          - task: CmdLine@2
+            displayName: 'Instalando dependências'
+            inputs:
+              script: 'npm install'
+
+          - task: CmdLine@2
+            displayName: 'Executando o Build'
+            inputs:
+              script: 'npm run build'
+
+  - stage: Deploy
+    dependsOn: Build
+    condition: succeeded('Build')
+    jobs:
+      - job: jobDeploy
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - template: tem-donwload-env.yml
+          - task: AzureStaticWebApp@0
+            displayName: 'Publicando projeto'
+            inputs:
+              app_location: '/'
+              api_location: ''
+              output_location: './.next'
+              app_build_command: 'npm run build'
+              azure_static_web_apps_api_token: $(token)
